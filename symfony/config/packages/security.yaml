@@ -12,9 +12,15 @@ security:
             # Ensure dev tools and static assets are always allowed
             pattern: ^/(_profiler|_wdt|assets|build)/
             security: false
+        api:
+            # Ensure dev tools and static assets are always allowed
+            pattern: ^/api/
+            custom_authenticators:
+                - App\Security\ApiAuthenticator
         main:
             lazy: true
             provider: users_in_memory
+
 
             # Activate different ways to authenticate:
             # https://symfony.com/doc/current/security.html#the-firewall
